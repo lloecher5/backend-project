@@ -2,21 +2,21 @@
   "development": {
     "username": "lloecher5",
     "password": null,
-    "database": "meal_tracker_db",
+    "database": "nutrition_tracker_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "lloecher5",
     "password": null,
-    "database": "meal_tracker_db",
+    "database": "nutrition_tracker_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "lloecher5",
     "password": null,
-    "database": "database_production",
+    "database": "nutrition_tracker_db",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
