@@ -6,7 +6,7 @@ const carbsInput = document.querySelector("#carbs");
 const proteinInput = document.querySelector("#protein");
 const fatInput = document.querySelector("#fat");
 const fiberInput = document.querySelector("#fiber");
-
+const foodImage = document.querySelector(".food-img");
 const food = input.value;
 
 form.addEventListener("submit", (e) => {
@@ -22,18 +22,20 @@ form.addEventListener("submit", (e) => {
     })
     .then((data) => {
       const nutrients = data.parsed[0].food.nutrients;
-      console.log(nutrients);
+      const imageURL = data.parsed[0].food.image;
+      console.log(imageURL);
       const fat = nutrients["FAT"];
       const carbs = nutrients["CHOCDF"];
       const fiber = nutrients["FIBTG"];
       const protein = nutrients["PROCNT"];
       const calories = nutrients["ENERC_KCAL"];
-      console.log(carbs);
-      fatInput.innerText = fat;
-      carbsInput.innerText = carbs;
-      fiberInput.innerText = fiber;
-      proteinInput.innerText = protein;
-      calorieInput.innerText = calories;
+
+      calorieInput.setAttribute("value", calories);
+      carbsInput.setAttribute("value", carbs);
+      proteinInput.setAttribute("value", protein);
+      fatInput.setAttribute("value", fat);
+      fiberInput.setAttribute("value", fiber);
+      foodImage.setAttribute("src", imageURL);
 
       nutritionFacts.style.display = "block";
     });

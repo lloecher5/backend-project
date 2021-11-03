@@ -1,0 +1,14 @@
+.nutrition-facts {
+  display: none;
+}
+
+.food-img {
+  margin-top: 20px;
+  border-radius: 50%;
+}
+
+h1,
+nav,
+.nutrition-facts {
+  text-align: center;
+}
