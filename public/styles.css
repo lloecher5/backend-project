@@ -39,3 +39,7 @@ a {
   color: white;
   margin: auto;
 }
+
+#save-notification {
+  color: red;
+}

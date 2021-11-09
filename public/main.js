@@ -9,6 +9,7 @@ const fiberInput = document.querySelector("#fiber");
 const foodImage = document.querySelector(".food-img");
 const foodInput = document.querySelector("#food");
 const nutritionForm = document.querySelector("#nutrition");
+const saveNotification = document.getElementById("save-notification");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -41,20 +42,41 @@ form.addEventListener("submit", (e) => {
       nutritionFacts.style.display = "block";
 
       //grab the data from the form
-      nutritionForm.addEventListener("submit", handleSubmit);
+      nutritionForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const data = new FormData(e.target);
+        const body = stringifyFormData(data);
+        console.log(body);
+        postData("http://localhost:8080/add-food", body).then((response) => {
+          console.log(response);
+        });
+
+        //render message saying food has been added to database
+        const renderAlert = () => {
+          saveNotification.innerText = `${food} has been added to your saved list!`;
+        };
+
+        renderAlert();
+
+        const removeAlert = () => {
+          saveNotification.innerText = "";
+        };
+
+        setTimeout(removeAlert, 2000);
+      });
     });
 });
 
-//function
-const handleSubmit = (e) => {
-  e.preventDefault();
-  const data = new FormData(e.target);
-  const body = stringifyFormData(data);
-  console.log(body);
-  postData("http://localhost:8080/add-food", body).then((response) => {
-    console.log(response);
-  });
-};
+//function on submit
+// const handleSubmit = (e) => {
+//   e.preventDefault();
+//   const data = new FormData(e.target);
+//   const body = stringifyFormData(data);
+//   console.log(body);
+//   postData("http://localhost:8080/add-food", body).then((response) => {
+//     console.log(response);
+//   });
+// };
 
 function stringifyFormData(fd) {
   const data = {};

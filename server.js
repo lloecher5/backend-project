@@ -43,7 +43,7 @@ server.get("/list", async (req, res) => {
   const html = foods
     .map((food) => {
       return `
-      <div class="card" style="width: 18rem; background-color: lightgrey; text-align:center;">
+      <div  class="card" style="width: 18rem; background-color: lightgrey; text-align:center;">
     
       <div class="card-body">
         <h5 class="card-title">${food.food}</h5>
@@ -53,7 +53,7 @@ server.get("/list", async (req, res) => {
           <p><em>Protein:</em> ${food.protein} </p>
           <p><em>Fat:</em> ${food.fat} </p>
           <p><em>Fiber:</em> ${food.fiber} </p>
-          <button  type="button" class="btn btn-danger">Delete</button>
+          <button  id= "${food.id}" type="button" class="btn btn-danger">Delete</button>
         
         
       </div>
@@ -73,6 +73,15 @@ server.get("/list", async (req, res) => {
 });
 
 //delete food from database
+server.delete("list", async (req, res) => {
+  const { id } = req.params;
+  const deletedUser = await Food.destroy({
+    where: {
+      id,
+    },
+  });
+  res.json(deletedUser);
+});
 
 server.listen("8080", () => {
   console.log("The server is running at port 8080");
