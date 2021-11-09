@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('Food', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -12,19 +12,19 @@ module.exports = {
         type: Sequelize.STRING
       },
       calories: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       carbs: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       protein: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       fat: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       fiber: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -37,6 +37,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('Food');
   }
 };

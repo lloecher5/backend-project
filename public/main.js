@@ -10,8 +10,6 @@ const foodImage = document.querySelector(".food-img");
 const foodInput = document.querySelector("#food");
 const nutritionForm = document.querySelector("#nutrition");
 
-const food = input.value;
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -26,7 +24,6 @@ form.addEventListener("submit", (e) => {
     .then((data) => {
       const nutrients = data.parsed[0].food.nutrients;
       const imageURL = data.parsed[0].food.image;
-      console.log(imageURL);
       const fat = nutrients["FAT"];
       const carbs = nutrients["CHOCDF"];
       const fiber = nutrients["FIBTG"];
@@ -48,11 +45,15 @@ form.addEventListener("submit", (e) => {
     });
 });
 
+//function
 const handleSubmit = (e) => {
   e.preventDefault();
   const data = new FormData(e.target);
-  const stringified = stringifyFormData(data);
-  console.log(stringified);
+  const body = stringifyFormData(data);
+  console.log(body);
+  postData("http://localhost:8080/add-food", body).then((response) => {
+    console.log(response);
+  });
 };
 
 function stringifyFormData(fd) {
@@ -61,4 +62,18 @@ function stringifyFormData(fd) {
     data[key] = fd.get(key);
   }
   return JSON.stringify(data, null, 4);
+}
+
+async function postData(url, data) {
+  const response = await fetch(url, {
+    method: "POST",
+
+    headers: {
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+
+    body: data, // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
 }

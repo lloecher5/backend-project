@@ -12,3 +12,30 @@ nav,
 .nutrition-facts {
   text-align: center;
 }
+
+.food-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+a {
+  display: block;
+  margin-top: 20px;
+}
+
+.home {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+#instructions {
+  text-align: center;
+}
+
+#link {
+  background-color: black;
+  color: white;
+  margin: auto;
+}

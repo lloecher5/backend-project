@@ -1,8 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   ${head}
-  
-  <h1>Nutrition Tracker</h1>
+
+  <h1>Nutrition Facts</h1>
+  <p id="instructions">
+    <b>Instructions: </b> Search for a food by keyword to reveal the food's
+    nutrition facts. You can then save the information to the database.
+  </p>
+
   <nav class="navbar navbar-light bg-light">
     <form class="form-inline">
       <input class="form-control" mr-sm-3" id="search" type="search"
@@ -11,50 +16,43 @@
         Search
       </button>
     </form>
+  
 
-    <!-- <form id="form">
-      <label for="calories">Calories</label>
-      <input id="calories" name="calories" type="text" />
-      <label for="carbs">Carbs</label>
-      <input id="carbs" name="email" type="text" />
-      <button type="submit">Submit</button>
-    </form> -->
+  <a href="./list">
+    <button id="link">Click here to see your saved foods</button>
+  </a>
 
-    <div class ="nutrition-facts">
-      <img class ="food-img" src ="">
+  <div class="nutrition-facts">
+    <img class="food-img" src="" />
 
-      <form id = "nutrition">
-        <p>
-          <label for="food"> Food: </label>
-          <input name="food" type ="text" id ="food">
-        </p>
-        <p>
+    <form id="nutrition">
+      <p>
+        <label for="food"> Food: </label>
+        <input name="food" type="text" id="food" />
+      </p>
+      <p>
         <label for="calories"> Calories: </label>
-        <input name="calories" type ="text" id ="calories">
+        <input name="calories" type="text" id="calories" />
       </p>
       <p>
         <label for="carbs"> Carbs: </label>
-        <input name="carbs" type ="text" id ="carbs">
+        <input name="carbs" type="text" id="carbs" />
       </p>
       <p>
         <label for="protein">Protein: </label>
-        <input name="protein" type ="text" id ="protein">
+        <input name="protein" type="text" id="protein" />
       </p>
       <p>
         <label for="fat">Fat: </label>
-        <input name="fat" type ="text" id ="fat">
+        <input name="fat" type="text" id="fat" />
       </p>
       <p>
         <label for="fiber">Fiber: </label>
-        <input name="fiber" type ="text" id ="fiber">
+        <input name="fiber" type="text" id="fiber" />
       </p>
-      <button type ="submit">Save to Database</button>
-      </form>
-    
-
-</div>
-
-  
+      <button type="submit">Save to Database</button>
+    </form>
+  </div>
 
   <body>
     <script src="./main.js"></script>
