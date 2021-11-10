@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Food', {
+    await queryInterface.createTable('Food2s', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -26,6 +26,9 @@ module.exports = {
       fiber: {
         type: Sequelize.STRING
       },
+      url: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -37,6 +40,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Food');
+    await queryInterface.dropTable('Food2s');
   }
 };

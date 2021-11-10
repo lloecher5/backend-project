@@ -8,8 +8,12 @@ const fatInput = document.querySelector("#fat");
 const fiberInput = document.querySelector("#fiber");
 const foodImage = document.querySelector(".food-img");
 const foodInput = document.querySelector("#food");
+const foodLabel = document.querySelector("#food-label");
+const urlInput = document.querySelector("#url");
+const urlLabel = document.querySelector("#url-label");
 const nutritionForm = document.querySelector("#nutrition");
 const saveNotification = document.getElementById("save-notification");
+const foodPyramid = document.querySelector("img");
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -37,9 +41,15 @@ form.addEventListener("submit", (e) => {
       proteinInput.setAttribute("value", protein);
       fatInput.setAttribute("value", fat);
       fiberInput.setAttribute("value", fiber);
+      urlInput.setAttribute("value", imageURL);
       foodImage.setAttribute("src", imageURL);
 
+      foodPyramid.style.display = "none";
       nutritionFacts.style.display = "block";
+      urlInput.style.display = "none";
+      urlLabel.style.display = "none";
+      foodInput.style.display = "none";
+      foodLabel.style.display = "none";
 
       //grab the data from the form
       nutritionForm.addEventListener("submit", (e) => {

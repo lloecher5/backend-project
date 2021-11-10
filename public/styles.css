@@ -31,15 +31,50 @@ a {
 }
 
 #instructions {
+  margin-top: 5px;
   text-align: center;
 }
 
 #link {
   background-color: black;
   color: white;
+  display: block;
   margin: auto;
+  margin-bottom: 70px;
 }
 
 #save-notification {
   color: red;
+  text-align: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: lightgrey;
+  width: 100%;
+  flex-basis: 10vh;
+}
+
+main {
+  flex-basis: 85vh;
+  width: 100%;
+}
+
+footer {
+  text-align: center;
+  background-color: black;
+  color: white;
+  width: 100%;
+  flex: 5vh;
+}
+
+img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
 }
