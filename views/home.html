@@ -2,60 +2,81 @@
 <html lang="en">
   ${head}
 
-  <h1>Nutrition Facts</h1>
-  <p id="instructions">
-    <b>Instructions: </b> Search for a food by keyword to reveal the food's
-    nutrition facts. You can then save the information to the database.
-  </p>
-
-  <nav class="navbar navbar-light bg-light">
-    <form class="form-inline">
-      <input class="form-control" mr-sm-3" id="search" type="search"
-      placeholder="Enter a food" aria-label="Search" autocomplete = "off"/>
-      <button class="btn btn-outline-success my-2 mx-3 my-sm-0" type="submit">
-        Search
-      </button>
-    </form>
-  
-
-  <a href="./list">
-    <button id="link">Click here to see your saved foods</button>
-  </a>
-
-  <div class="nutrition-facts">
-    <img class="food-img" src="" />
-
-    <form id="nutrition">
-      <p>
-        <label for="food"> Food: </label>
-        <input name="food" type="text" id="food" />
-      </p>
-      <p>
-        <label for="calories"> Calories: </label>
-        <input name="calories" type="text" id="calories" />
-      </p>
-      <p>
-        <label for="carbs"> Carbs: </label>
-        <input name="carbs" type="text" id="carbs" />
-      </p>
-      <p>
-        <label for="protein">Protein: </label>
-        <input name="protein" type="text" id="protein" />
-      </p>
-      <p>
-        <label for="fat">Fat: </label>
-        <input name="fat" type="text" id="fat" />
-      </p>
-      <p>
-        <label for="fiber">Fiber: </label>
-        <input name="fiber" type="text" id="fiber" />
-      </p>
-      <button type="submit">Save to Database</button>
-    </form>
-    <p id ="save-notification"></p>
-  </div>
-
   <body>
+    <header>
+      <h1>Nutrition Facts</h1>
+    </header>
+
+    <main>
+      <p id="instructions">
+        <b>Instructions: </b> Search for a food to reveal the food's nutrition
+        facts. You can then save the information to the database and create a
+        saved foods list.
+      </p>
+
+      <nav class="navbar navbar-light bg-light">
+        <form class="form-inline">
+          <input class="form-control" mr-sm-3" id="search" type="search"
+          placeholder="Enter a food" aria-label="Search" autocomplete = "off"/>
+          <button
+            class="btn btn-outline-success my-2 mx-3 my-sm-0"
+            type="submit"
+          >
+            Search
+          </button>
+        </form>
+      </nav>
+
+      <a href="./list">
+        <button id="link">Click here to see your saved foods</button>
+      </a>
+
+      <p id="save-notification"></p>
+
+      <img src="./food-pyramid.jpg" alt="food-pyramid" />
+
+      <div class="nutrition-facts">
+        <img class="food-img" src="" />
+
+        <form id="nutrition">
+          <p>
+            <label id="url-label" for="url"> URL: </label>
+            <input name="url" type="text" id="url" />
+          </p>
+
+          <p>
+            <label id="food-label" for="food"> Food: </label>
+            <input name="food" type="text" id="food" />
+          </p>
+          <p>
+            <label for="calories"> Calories: </label>
+            <input name="calories" type="text" id="calories" />
+          </p>
+          <p>
+            <label for="carbs"> Carbs: </label>
+            <input name="carbs" type="text" id="carbs" />
+          </p>
+          <p>
+            <label for="protein">Protein: </label>
+            <input name="protein" type="text" id="protein" />
+          </p>
+          <p>
+            <label for="fat">Fat: </label>
+            <input name="fat" type="text" id="fat" />
+          </p>
+          <p>
+            <label for="fiber">Fiber: </label>
+            <input name="fiber" type="text" id="fiber" />
+          </p>
+          <button type="submit">Save to Database</button>
+        </form>
+      </div>
+    </main>
+
+    <footer>
+      <p>Built in 2021</p>
+    </footer>
+
     <script src="./main.js"></script>
   </body>
 </html>

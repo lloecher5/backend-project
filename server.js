@@ -2,7 +2,7 @@ const express = require("express");
 const es6Renderer = require("express-es6-template-engine");
 const server = express();
 const Sequelize = require("sequelize");
-const { Food } = require("./models");
+const { Food2 } = require("./models");
 
 server.use("/", express.static(__dirname + "/public"));
 server.use(express.json());
@@ -20,16 +20,17 @@ server.get("/", (req, res) => {
   });
 });
 
-//post request that connects to the database
+//post request that connects to the database and creates new food entries
 server.post("/add-food", async (req, res) => {
-  const { food, calories, carbs, protein, fat, fiber } = req.body;
-  const newUser = await Food.create({
+  const { food, calories, carbs, protein, fat, fiber, url } = req.body;
+  const newUser = await Food2.create({
     food,
     calories,
     carbs,
     protein,
     fat,
     fiber,
+    url,
   });
   res.json({
     id: newUser.id,
@@ -38,12 +39,13 @@ server.post("/add-food", async (req, res) => {
 
 //route to show list of foods in the database
 server.get("/list", async (req, res) => {
-  const foods = await Food.findAll();
+  const foods = await Food2.findAll();
 
   const html = foods
     .map((food) => {
       return `
       <div  class="card" style="width: 18rem; background-color: lightgrey; text-align:center;">
+      <img class="card-img-top" src="${food.url}" alt="Card image cap">
     
       <div class="card-body">
         <h5 class="card-title">${food.food}</h5>
@@ -73,9 +75,9 @@ server.get("/list", async (req, res) => {
 });
 
 //delete food from database
-server.delete("list", async (req, res) => {
+server.post("/list/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedUser = await Food.destroy({
+  const deletedUser = await Food2.destroy({
     where: {
       id,
     },
